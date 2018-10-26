@@ -1,5 +1,5 @@
 
-public class newSongs extends Audio
+public class NewSongs extends Audio
 {
 	private String author;
 	
