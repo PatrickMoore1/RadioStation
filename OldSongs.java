@@ -1,5 +1,5 @@
 
-public class oldSongs extends Audio {
+public class OldSongs extends Audio {
 
 	private String author;
 	private String datePlayed;
