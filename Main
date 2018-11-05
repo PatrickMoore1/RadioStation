@@ -1,0 +1,12 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		RadioStations radio1 = new RadioStations();
+		
+		radio1.createPlaylist();
+		radio1.displayList();
+
+	}
+
+}
