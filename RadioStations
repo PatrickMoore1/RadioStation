@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class RadioStations {
+	
+	ArrayList<Audio> audioList = new ArrayList<Audio>();
+
+	public RadioStations()	{
+		
+	}
+	
+	public void createPlaylist()	{
+		Commercials com1 = new Commercials("Chef Boyardee", 3);
+		NewSongs song1 = new NewSongs("Despacito", 5, "Spanish Man");
+		
+		audioList.add(com1);
+		audioList.add(song1);
+	}
+	
+	public void displayList()	{
+		int object = 0;
+		while(object < audioList.size()) {
+			System.out.print(audioList.get(object).getTitle());
+			
+		//	if((audioList.get(object)).getAuthor())
+			System.out.println(audioList.get(object).getAudioLength());
+			
+			object++;
+		}
+		
+	}
+
+}
