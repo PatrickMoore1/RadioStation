@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+public class Driver {
+
+	private static ArrayList<Audio> masterList = new ArrayList<Audio>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		for(int i = 0; i <= 48; i++)
+		{
+			masterList.add(new oldSongs("Despacito" + i, 3, "Kevin " + i, "190" + i));
+		}
+		
+		for(int m = 0; m <= 144; m++)
+		{
+			masterList.add(new NewSongs("Literal Screaming" + m, 3, "some guy " + m ));
+		}
+		
+		for(int n = 0; n <= 480; n++)
+		{
+			masterList.add(new Commercials("gibmemone" + n, 1));
+		}
+		
+		for(int u = 0; u <= 96; u++)
+		{
+			masterList.add(new RadioSpots("interwview with Guy Fieri " + u, 3));
+		}
+		
+		for(int t = 0; t <= 96; t++)
+		{
+			masterList.add(new Traffic("the road is on fire" + t, 2));
+		}
+		
+		for(int f = 0; f <= 96; f++)
+		{
+			masterList.add(new News("local dog barks" + f, 5));
+		}
+
+	}
+
+}
