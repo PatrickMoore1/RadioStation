@@ -2,13 +2,13 @@ import java.util.ArrayList;
 public class Driver {
 
 	private static ArrayList<Audio> masterList = new ArrayList<Audio>();
+	private static ArrayList<Audio> sortedList = new ArrayList<Audio>();
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		for(int i = 0; i <= 48; i++)
 		{
-			masterList.add(new oldSongs("Despacito" + i, 3, "Kevin " + i, "190" + i));
+			masterList.add(new OldSongs("Despacito" + i, 3, "Kevin " + i, "190" + i));
 		}
 		
 		for(int m = 0; m <= 144; m++)
@@ -35,7 +35,26 @@ public class Driver {
 		{
 			masterList.add(new News("local dog barks" + f, 5));
 		}
+		
+		RadioStations wmmr = new RadioStations();
+		
+		wmmr.sortMasterList(masterList);
+		wmmr.createPlaylist(masterList);
+		
+		ArrayList<Audio> playlist1 = new ArrayList<>();
+		playlist1 = wmmr.getDjSet1();
+		
+		displayList(playlist1);
 
+	}
+	
+	public static void displayList(ArrayList<Audio> audioList)	{
+		
+			for(Audio audio : audioList)	{
+				System.out.print("Title: " + audio.getTitle() + ". ");				 
+				System.out.println("Audio Length:" + audio.getAudioLength());			
+			
+			}
 	}
 
 }
