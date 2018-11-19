@@ -45,6 +45,41 @@ public class RadioStations {
 			}
 		}
 	}
+	
+	public void createPlaylist()
+	{
+		int count = 0;
+		while(count >= 103)
+		{
+			
+			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
+			{
+				djSet1.add(radioSpotList.get(rand.nextInt(radioSpotList.size())));
+			}
+			
+			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
+			{
+				djSet1.add(trafficList.get(rand.nextInt(trafficList.size())));
+			}
+			
+			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
+			{
+				djSet1.add(oldSongList.get(rand.nextInt(oldSongList.size())));
+			}
+			
+			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
+			{
+				djSet1.add(newSongList.get(rand.nextInt(newSongList.size())));
+			}
+			
+			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
+			{
+				djSet1.add(commercialList.get(rand.nextInt(commercialList.size())));
+			}
+			
+		}
+	}
+	
 	public void displayList()	{
 		int object = 0;
 		while(object < audioList.size()) {
