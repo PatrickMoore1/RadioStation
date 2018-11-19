@@ -1,96 +1,60 @@
 import java.util.ArrayList;
+public class Driver {
 
-public class RadioStations {
+	private static ArrayList<Audio> masterList = new ArrayList<Audio>();
+	private static ArrayList<Audio> sortedList = new ArrayList<Audio>();
 	
-	private ArrayList<Audio> masterList;
-	private ArrayList<Audio> newSongList;
-	private ArrayList<Audio> oldSongList;
-	private ArrayList<Audio> newsList;
-	private ArrayList<Audio> radioSpotList;
-	private ArrayList<Audio> trafficList;
-	private ArrayList<Audio> commercialList;
-	//private int oldSongDate;
-	private ArrayList<Audio> djSet1 = new ArrayList<Audio>();
-	private Random rand = new Random();
-
-	
-	public RadioStation()
-	{
-		//this.oldSongDate = oldSongDate;
-	}
-	
-	public void sortMasterList(ArrayList<Audio> masterList)
-	{
-		for(Audio audio : masterList)
+	public static void main(String[] args) {
+		
+		for(int i = 0; i <= 48; i++)
 		{
-			if(audio instanceof News)
-			{
-				newsList.add(audio);
-			}
-			else if(audio instanceof RadioSpots)
-			{
-				radioSpotList.add(audio);
-			}
-			else if(audio instanceof Traffic)
-			{
-				trafficList.add(audio);
-			}
-			else if(audio instanceof OldSongs)
-			{
-				oldSongList.add(audio);
-			}
-			else if(audio instanceof NewSongs)
-			{
-				newSongList.add(audio);
-			}
-		}
-	}
-	
-	public void createPlaylist()
-	{
-		int count = 0;
-		while(count >= 103)
-		{
-			
-			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
-			{
-				djSet1.add(radioSpotList.get(rand.nextInt(radioSpotList.size())));
-			}
-			
-			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
-			{
-				djSet1.add(trafficList.get(rand.nextInt(trafficList.size())));
-			}
-			
-			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
-			{
-				djSet1.add(oldSongList.get(rand.nextInt(oldSongList.size())));
-			}
-			
-			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
-			{
-				djSet1.add(newSongList.get(rand.nextInt(newSongList.size())));
-			}
-			
-			if(count == 0 || count == 22 || count == 26 || count == 48 || count == 52 || count == 74 || count == 78 || count == 100)
-			{
-				djSet1.add(commercialList.get(rand.nextInt(commercialList.size())));
-			}
-			
-		}
-	}
-	
-	public void displayList()	{
-		int object = 0;
-		while(object < audioList.size()) {
-			System.out.print(audioList.get(object).getTitle());
-			
-		//	if((audioList.get(object)).getAuthor())
-			System.out.println(audioList.get(object).getAudioLength());
-			
-			object++;
+			masterList.add(new OldSongs("Despacito" + i, 3, "Kevin " + i, "190" + i));
 		}
 		
+		for(int m = 0; m <= 144; m++)
+		{
+			masterList.add(new NewSongs("Literal Screaming" + m, 3, "some guy " + m ));
+		}
+		
+		for(int n = 0; n <= 480; n++)
+		{
+			masterList.add(new Commercials("gibmemone" + n, 1));
+		}
+		
+		for(int u = 0; u <= 96; u++)
+		{
+			masterList.add(new RadioSpots("interwview with Guy Fieri " + u, 3));
+		}
+		
+		for(int t = 0; t <= 96; t++)
+		{
+			masterList.add(new Traffic("the road is on fire" + t, 2));
+		}
+		
+		for(int f = 0; f <= 96; f++)
+		{
+			masterList.add(new News("local dog barks" + f, 5));
+		}
+		
+		RadioStations wmmr = new RadioStations();
+		
+		wmmr.sortMasterList(masterList);
+		wmmr.createPlaylist(masterList);
+		
+		ArrayList<Audio> playlist1 = new ArrayList<>();
+		playlist1 = wmmr.getDjSet1();
+		
+		displayList(playlist1);
+
+	}
+	
+	public static void displayList(ArrayList<Audio> audioList)	{
+		
+			for(Audio audio : audioList)	{
+				System.out.print("Title: " + audio.getTitle() + ". ");				 
+				System.out.println("Audio Length:" + audio.getAudioLength());			
+			
+			}
 	}
 
 }
