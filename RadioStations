@@ -2,20 +2,49 @@ import java.util.ArrayList;
 
 public class RadioStations {
 	
-	ArrayList<Audio> audioList = new ArrayList<Audio>();
+	private ArrayList<Audio> masterList;
+	private ArrayList<Audio> newSongList;
+	private ArrayList<Audio> oldSongList;
+	private ArrayList<Audio> newsList;
+	private ArrayList<Audio> radioSpotList;
+	private ArrayList<Audio> trafficList;
+	private ArrayList<Audio> commercialList;
+	//private int oldSongDate;
+	private ArrayList<Audio> djSet1 = new ArrayList<Audio>();
+	private Random rand = new Random();
 
-	public RadioStations()	{
-		
+	
+	public RadioStation()
+	{
+		//this.oldSongDate = oldSongDate;
 	}
 	
-	public void createPlaylist()	{
-		Commercials com1 = new Commercials("Chef Boyardee", 3);
-		NewSongs song1 = new NewSongs("Despacito", 5, "Spanish Man");
-		
-		audioList.add(com1);
-		audioList.add(song1);
+	public void sortMasterList(ArrayList<Audio> masterList)
+	{
+		for(Audio audio : masterList)
+		{
+			if(audio instanceof News)
+			{
+				newsList.add(audio);
+			}
+			else if(audio instanceof RadioSpots)
+			{
+				radioSpotList.add(audio);
+			}
+			else if(audio instanceof Traffic)
+			{
+				trafficList.add(audio);
+			}
+			else if(audio instanceof OldSongs)
+			{
+				oldSongList.add(audio);
+			}
+			else if(audio instanceof NewSongs)
+			{
+				newSongList.add(audio);
+			}
+		}
 	}
-	
 	public void displayList()	{
 		int object = 0;
 		while(object < audioList.size()) {
