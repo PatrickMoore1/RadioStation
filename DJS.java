@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class DJS {
 	
-	private ArrayList<Audio> audioList = new ArrayList<Audio>();
+	private ArrayList<Audio> audioList;
 	private String djName;
 	
 	
-	public DJS(String djName) {
-		this.djName = djName;
+	public DJS(ArrayList<Audio> djSet) {
+		this.audioList = djSet; 
 	}
 
 
@@ -24,9 +24,9 @@ public class DJS {
 	public String getDjName() {
 		return djName;
 	}
-
-
-	public void setDjName(String djName) {
+	
+	public void setDjName(String djName)
+	{
 		this.djName = djName;
 	}
 
