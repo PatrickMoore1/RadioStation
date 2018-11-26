@@ -42,7 +42,15 @@ public class playlistPanel extends JPanel{
 		add(title8);
 		add(title9);
 		
-		
+		public playlistPanel(ArrayList<Audio> playlist)	{
+		setLayout(new GridLayout(9,1));
+		this.playlist = playlist;
+			
+			for(int count = 0; count <= playlist.size(); count++) {
+				add(new JLabel(playlist.get(count).getTitle()));
+			}		
+		}		
+	}
 	}
 
 }
