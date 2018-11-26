@@ -3,8 +3,12 @@ public class Driver {
 
 	private static ArrayList<Audio> masterList = new ArrayList<Audio>();
 	private static ArrayList<Audio> sortedList = new ArrayList<Audio>();
+	private static ArrayList<Audio> playlist1 = new ArrayList<Audio>();
+	private static RadioGUI gui = new RadioGUI(playlist1);
 	
 	public static void main(String[] args) {
+		
+		//new RadioGUI();
 		
 		for(int i = 0; i <= 48; i++)
 		{
@@ -23,7 +27,7 @@ public class Driver {
 		
 		for(int u = 0; u <= 96; u++)
 		{
-			masterList.add(new RadioSpots("interwview with Guy Fieri " + u, 3));
+			masterList.add(new RadioSpots("interview with Guy Fieri " + u, 3));
 		}
 		
 		for(int t = 0; t <= 96; t++)
@@ -44,6 +48,8 @@ public class Driver {
 		ArrayList<Audio> playlist1 = new ArrayList<>();
 		playlist1 = wmmr.getDjSet1();
 		
+		RadioGUI gui = new RadioGUI(playlist1);
+		
 		displayList(playlist1);
 
 	}
@@ -52,9 +58,20 @@ public class Driver {
 		
 			for(Audio audio : audioList)	{
 				System.out.print("Title: " + audio.getTitle() + ". ");				 
-				System.out.println("Audio Length:" + audio.getAudioLength());			
+				System.out.println("Audio Length:" + audio.getAudioLength());
+				delay(audio.getAudioLength() * 200);
+				gui.setCurrentSong(audio.getTitle());
+				
+			}		
+		}
+	
+	public static void delay(int milliseconds)	{
+		try {
+			Thread.sleep(milliseconds);
+		}
+		catch (InterruptedException ie)	{
 			
-			}
+		}
 	}
 
 }
