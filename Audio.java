@@ -1,7 +1,7 @@
 /**
  * The audio is the superclass and will provide for the title author and time
  * 
- * @author Patrick Moore, Alexander Abbot, Brian Piet, Kevin Nguyen
+ * @author Patrick Moore, Alexander Abbot, Kevin Nguyen
  *
  */
 public class Audio {
@@ -71,6 +71,9 @@ public class Audio {
 		return time;
 	}	
 	
+	/**
+	 * Plays the song by incrementing the time
+	 */
 	public void playSong()	{
 		time++;
 	}
