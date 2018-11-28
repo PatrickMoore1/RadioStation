@@ -9,15 +9,7 @@ public class Driver {
 
 	public static void main(String[] args) {
 
-		RadioStations wmmr = new RadioStations();
-
-		wmmr.sortMasterList();
-		wmmr.createPlaylist();
-
-		ArrayList<Audio> playlist1 = new ArrayList<>();
-		playlist1 = wmmr.getDjSet1();
-
-		RadioGUI gui = new RadioGUI(playlist1);
+		RadioGUI gui = new RadioGUI();
 
 	}
 
