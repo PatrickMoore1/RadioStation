@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 public class Driver {
 
@@ -5,6 +7,7 @@ public class Driver {
 	private static ArrayList<Audio> sortedList = new ArrayList<Audio>();
 	private static ArrayList<Audio> playlist1 = new ArrayList<Audio>();
 	private static RadioGUI gui = new RadioGUI(playlist1);
+	private static RadioStations wmmr = new RadioStations();
 	
 	public static void main(String[] args) {
 		
@@ -71,7 +74,7 @@ public class Driver {
 		}
 		catch (InterruptedException ie)	{
 			
-		}
+		}		
 	}
 
 }
