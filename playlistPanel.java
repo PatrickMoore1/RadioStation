@@ -1,9 +1,14 @@
+import java.awt.*;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * The panel for the playlist is created with the needed information
+ * @author Patrick Moore
+ *
+ */
 public class playlistPanel extends JPanel{
 
 	private ArrayList<Audio> playlist;
