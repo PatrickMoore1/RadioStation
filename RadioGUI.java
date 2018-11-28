@@ -21,15 +21,26 @@ public class RadioGUI extends JFrame {
 	private playlistPanel songPanel;
 	private JFrame frame;
 	private JScrollPane scrollPane;
-	private ArrayList<Audio> playlist;
+	private ArrayList<Audio> playlist = new ArrayList<Audio>();
 	private String currentSong;
 	private boolean isAction = false;
+	private RadioStations wmmr = new RadioStations();
+	
 
 
-	public RadioGUI(ArrayList<Audio> playlist)	{
-		this.playlist = playlist;
+	public RadioGUI()	{
+		
+		makeGUI();
+	}
+	
+	public void makeGUI()	{
+		
+		wmmr.sortMasterList();
+		wmmr.createPlaylist();
+		playlist = wmmr.getDjSet1();
+		
 		makeFrame();
-		displayList(playlist);
+		displayList(playlist);		
 	}
 
 	public void makeFrame()	{
@@ -64,7 +75,7 @@ public class RadioGUI extends JFrame {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			isAction = true;
+			makeGUI();
 		}
 	}
 
@@ -90,5 +101,3 @@ public class RadioGUI extends JFrame {
 		}		
 	}
 }
-
-
