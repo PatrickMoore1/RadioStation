@@ -3,78 +3,22 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 public class Driver {
 
-	private static ArrayList<Audio> masterList = new ArrayList<Audio>();
-	private static ArrayList<Audio> sortedList = new ArrayList<Audio>();
 	private static ArrayList<Audio> playlist1 = new ArrayList<Audio>();
-	private static RadioGUI gui = new RadioGUI(playlist1);
-	private static RadioStations wmmr = new RadioStations();
-	
+	private RadioStations wmmr;
+	private RadioGUI gui;
+
 	public static void main(String[] args) {
-		
-		//new RadioGUI();
-		
-		for(int i = 0; i <= 48; i++)
-		{
-			masterList.add(new OldSongs("Despacito" + i, 3, "Kevin " + i, "190" + i));
-		}
-		
-		for(int m = 0; m <= 144; m++)
-		{
-			masterList.add(new NewSongs("Literal Screaming" + m, 3, "some guy " + m ));
-		}
-		
-		for(int n = 0; n <= 480; n++)
-		{
-			masterList.add(new Commercials("gibmemone" + n, 1));
-		}
-		
-		for(int u = 0; u <= 96; u++)
-		{
-			masterList.add(new RadioSpots("interview with Guy Fieri " + u, 3));
-		}
-		
-		for(int t = 0; t <= 96; t++)
-		{
-			masterList.add(new Traffic("the road is on fire" + t, 2));
-		}
-		
-		for(int f = 0; f <= 96; f++)
-		{
-			masterList.add(new News("local dog barks" + f, 5));
-		}
-		
+
 		RadioStations wmmr = new RadioStations();
-		
-		wmmr.sortMasterList(masterList);
-		wmmr.createPlaylist(masterList);
-		
+
+		wmmr.sortMasterList();
+		wmmr.createPlaylist();
+
 		ArrayList<Audio> playlist1 = new ArrayList<>();
 		playlist1 = wmmr.getDjSet1();
-		
-		RadioGUI gui = new RadioGUI(playlist1);
-		
-		displayList(playlist1);
 
-	}
-	
-	public static void displayList(ArrayList<Audio> audioList)	{
-		
-			for(Audio audio : audioList)	{
-				System.out.print("Title: " + audio.getTitle() + ". ");				 
-				System.out.println("Audio Length:" + audio.getAudioLength());
-				delay(audio.getAudioLength() * 200);
-				gui.setCurrentSong(audio.getTitle());
-				
-			}		
-		}
-	
-	public static void delay(int milliseconds)	{
-		try {
-			Thread.sleep(milliseconds);
-		}
-		catch (InterruptedException ie)	{
-			
-		}		
+		RadioGUI gui = new RadioGUI(playlist1);
+
 	}
 
 }
