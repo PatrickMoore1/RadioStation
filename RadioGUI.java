@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import OrderCalculatorGUI.CalcButtonListener;
+
 
 public class RadioGUI extends JFrame {
 	
@@ -20,10 +20,12 @@ public class RadioGUI extends JFrame {
 	private JPanel djPanel;
 	private playlistPanel songPanel;
 	private JFrame frame;
+	private JScrollPane scrollPane;
 	private ArrayList<Audio> playlist;
 	private String currentSong;
+	private boolean isAction = false;
 	
-	
+
 	public RadioGUI(ArrayList<Audio> playlist)	{
 		this.playlist = playlist;
 		makeFrame();
@@ -40,57 +42,34 @@ public class RadioGUI extends JFrame {
 		picturePanel = new JPanel();
 		buttonPanel = new JPanel();
 		currentPlaying = new JPanel();
-		
-		
+			
 		createPlaylist = new JButton("Create Playlist");
 		buttonPanel.add(createPlaylist);
 		createPlaylist.addActionListener(new createPlaylistListener());
 		
 		currentTitle = new JLabel();
 		currentPlaying.add(currentTitle);
-		
-		
-		add(songPanel, BorderLayout.WEST);
+		scrollPane = new JScrollPane(songPanel);
+			
+		add(scrollPane, BorderLayout.WEST);
 		add(picturePanel, BorderLayout.NORTH);
 		add(buttonPanel, BorderLayout.SOUTH);
 		add(currentPlaying, BorderLayout.CENTER);
-		
-		
 		
 		pack();
 	    setVisible(true);
 		
 	}
 	
-	
-	//private class createPlaylistListener implements ActionListener
-	 //  {
-	  //    public void actionPerformed(ActionEvent e)
-	   ///   {
-	     //    // Variables to hold the subtotal, tax, and total
-	      //   double subtotal, tax, total;
+	private class createPlaylistListener implements ActionListener
+	   {
+	      public void actionPerformed(ActionEvent e)
+	      {
+	    	  isAction = true;
 
-	         // Calculate the subtotal.
-	         //subtotal = bagels.getBagelCost() + 
-	           //         toppings.getToppingCost() +
-	             //       coffee.getCoffeeCost();
-//
-	//         // Calculate the sales tax.
-	  //       tax = subtotal * TAX_RATE;
-//
-	//         // Calculate the total.
-	  //       total = subtotal + tax;
-//
-	//         // Create a DecimalFormat object to format output.
-	  //       DecimalFormat dollar = new DecimalFormat("0.00");
-//
-	//         // Display the charges.
-	  //       JOptionPane.showMessageDialog(null, "Subtotal: $" +
-	    //                   dollar.format(subtotal) + "\n" +
-	      //                 "Tax: $" + dollar.format(tax) + "\n" +
-	        //               "Total: $" + dollar.format(total));
-	     // }//
-	   //}//
+	      }
+	   }
+
 
 	public void setCurrentSong(String currentSong) {
 		currentTitle.setText("Now Playing: " + currentSong);
@@ -99,6 +78,16 @@ public class RadioGUI extends JFrame {
 		
 		
 	}
+	
+	
+	public boolean getIsAction() {
+		return isAction;
+	}
+
+	public void setAction(boolean isAction) {
+		this.isAction = isAction;
+	}
 
 }
+
 
