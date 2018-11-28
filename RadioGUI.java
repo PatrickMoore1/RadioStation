@@ -9,7 +9,12 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 
-
+/**
+ * The GUI for the radio is created with the given lists and information
+ * 
+ * @author Patrick Moore
+ *
+ */
 public class RadioGUI extends JFrame {
 
 	private JButton createPlaylist;
@@ -27,12 +32,17 @@ public class RadioGUI extends JFrame {
 	private RadioStations wmmr = new RadioStations();
 	
 
-
+	/**
+	 * The GUI is made
+	 */
 	public RadioGUI()	{
 		
 		makeGUI();
 	}
 	
+	/**
+	 * The GUI takes in the playlists and creates the labels from there
+	 */
 	public void makeGUI()	{
 		
 		wmmr.sortMasterList();
@@ -43,6 +53,9 @@ public class RadioGUI extends JFrame {
 		displayList(playlist);		
 	}
 
+	/**
+	 * The layout of the GUI is made
+	 */
 	public void makeFrame()	{
 
 		setTitle("Radio Station");
@@ -70,7 +83,11 @@ public class RadioGUI extends JFrame {
 		pack();
 		setVisible(true);
 	}
-
+	
+	/**
+	 * The actionlistener is made to make the GUI
+	 * 
+	 */
 	private class createPlaylistListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
@@ -79,6 +96,10 @@ public class RadioGUI extends JFrame {
 		}
 	}
 
+	/**
+	 * Displays the current song
+	 * @param currentSong		The current song being played
+	 */
 	public static void setCurrentSong(String currentSong) {
 		currentTitle.setText("Now Playing: " + currentSong);	
 	}
@@ -92,7 +113,10 @@ public class RadioGUI extends JFrame {
 			setCurrentSong(audio.getTitle());
 		}		
 	}
-
+	/**
+	 * Used to delay the program depending on song length
+	 * @param milliseconds
+	 */
 	public static void delay(int milliseconds)	{
 		try {
 			Thread.sleep(milliseconds);
