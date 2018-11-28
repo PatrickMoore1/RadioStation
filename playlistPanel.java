@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -19,10 +21,10 @@ public class playlistPanel extends JPanel{
 	private JLabel title8;
 	private JLabel title9;
 	
-	public playlistPanel()	{
+	public playlistPanel(ArrayList<Audio> playlist)	{
 		setLayout(new GridLayout(9,1));
 		
-		//title1 = new JLabel("" + audioList.get(0).getTitle());
+		title1 = new JLabel("title1");
 		title2 = new JLabel("title2");
 		title3 = new JLabel("title3");
 		title4 = new JLabel("title4");
@@ -41,16 +43,19 @@ public class playlistPanel extends JPanel{
 		add(title7);
 		add(title8);
 		add(title9);
-		
-		public playlistPanel(ArrayList<Audio> playlist)	{
-		setLayout(new GridLayout(9,1));
-		this.playlist = playlist;
+	
+	//public playlistPanel(ArrayList<Audio> playlist)	{
+		//setLayout(new GridLayout(9,1));
+		//this.playlist = playlist;
 			
-			for(int count = 0; count <= playlist.size(); count++) {
-				add(new JLabel(playlist.get(count).getTitle()));
-			}		
-		}		
+			//for(int count = 0; count <= playlist.size(); count++) {
+				//add(new JLabel(playlist.get(count).getTitle()));
+			//}		
+		//}
+	
+//	public void clear()	{
+		//for(int count = 0; count <= playlist.size(); count++) {
+		//add(new JLabel(""));
+	//}
 	}
-	}
-
 }
