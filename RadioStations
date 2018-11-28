@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+
+/**
+ * The RadioStation class holds all the lists for the songs, commercials, news reports as well as the djs
+ * 
+ * @author Patrick Moore, Kevin Nguyen, Alex Abbot
+ *
+ */
 public class RadioStations {
 
 	private ArrayList<Audio> masterList = new ArrayList<Audio>();
@@ -13,7 +20,9 @@ public class RadioStations {
 	private ArrayList<Audio> djSet1 = new ArrayList<Audio>();
 	private Random rand = new Random();
 
-
+	/**
+	 * The RadioStations class is made
+	 */
 	public RadioStations()
 	{
 
@@ -47,7 +56,12 @@ public class RadioStations {
 			masterList.add(new News("local dog barks" + f, 5));
 		}
 	}
-
+	/**
+	 * Sorts through all the audio files and puts them where they need to be
+	 * 
+	 * 
+	 * @param masterList		The list of all of the audio files
+	 */
 	public void sortMasterList()
 	{
 		for(Audio audio : masterList)
@@ -78,7 +92,10 @@ public class RadioStations {
 			}
 		}
 	}
-
+	/**
+	*The playlist is created with the sorted audio objects
+	*
+	*/
 	public void createPlaylist()
 	{
 
@@ -126,7 +143,11 @@ public class RadioStations {
 
 		}
 	}
-
+	/**
+	*Gives back the set of DJs
+	*
+	*@return	The set of Djs
+	*/
 	public ArrayList<Audio> getDjSet1() {
 		return djSet1;
 	}
