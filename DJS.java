@@ -35,8 +35,8 @@ public class DJS {
 
 
 	public String getDjName() {
-		rand = new Random(nameList.size());
-		return nameList.get(rand.nextInt());
+		rand = new Random();
+		return nameList.get(rand.nextInt(nameList.size()));
 	}
 	
 
