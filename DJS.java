@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * The list of DJs with their playlists are made
  * @author penns
@@ -7,48 +9,35 @@ import java.util.ArrayList;
 public class DJS {
 	
 	private ArrayList<Audio> audioList;
-	private String djName;
+	private ArrayList<String> nameList;
+	private Random rand;
 	
-	/**
-	 * The djs with their lists are made 
-	 * @param djSet			The given list that is playlist
-	 */
-	public DJS(ArrayList<Audio> djSet) {
-		this.audioList = djSet; 
+	
+	public DJS() {
+		nameList = new ArrayList<String>();
+		nameList.add("DJ Kevin");
+		nameList.add("DJ Alex");
+		nameList.add("DJ Pat");
+		nameList.add("DJ Steve");
+		nameList.add("DJ Funky Fresh");
+		nameList.add("DJ Nasty Nathaniel");
 	}
 
-	/**
-	 * The playlist is given back
-	 * 
-	 * @return		The list of audio
-	 */
+
 	public ArrayList<Audio> getAudioList() {
 		return audioList;
 	}
 
 
-	/**
-	 * An audio file is added to the list
-	 */
-	public void addAudio(Audio audioFile) {
-		audioList.add(audioFile);
+	public void addAudio(ArrayList<Audio> audioList) {
+		this.audioList = audioList;
 	}
 
-	/**
-	 * Gets back the Dj name
-	 * @return		The names of the dj
-	 */
+
 	public String getDjName() {
-		return djName;
+		rand = new Random(nameList.size());
+		return nameList.get(rand.nextInt());
 	}
 	
-	/**
-	 * Sets the name of the dj
-	 * @param djName
-	 */
-	public void setDjName(String djName)
-	{
-		this.djName = djName;
-	}
 
 }
