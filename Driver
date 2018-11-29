@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 public class Driver {
 
-	private static ArrayList<Audio> playlist1 = new ArrayList<Audio>();
+	private ArrayList<Audio> playlist1 = new ArrayList<Audio>();
 	private RadioStations wmmr;
 	private RadioGUI gui;
 
