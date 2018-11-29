@@ -9,53 +9,45 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 
-/**
- * The GUI for the radio is created with the given lists and information
- * 
- * @author Patrick Moore
- *
- */
+
 public class RadioGUI extends JFrame {
 
 	private JButton createPlaylist;
 	private JPanel picturePanel;
 	private JPanel buttonPanel;
 	private JPanel currentPlaying;
-	private static JLabel currentTitle;
+	private JLabel currentTitle;
 	private JPanel djPanel;
 	private playlistPanel songPanel;
 	private JFrame frame;
 	private JScrollPane scrollPane;
-	private ArrayList<Audio> playlist = new ArrayList<Audio>();
+	ArrayList<Audio> playlist = new ArrayList<Audio>();
 	private String currentSong;
 	private boolean isAction = false;
 	private RadioStations wmmr = new RadioStations();
+	private JLabel currentDJ;
+	private DJS djs = new DJS();
+	//private boolean isPlaying = false;
 	
 
-	/**
-	 * The GUI is made
-	 */
-	public RadioGUI()	{
-		
+
+	public RadioGUI()	{	
 		makeGUI();
 	}
 	
-	/**
-	 * The GUI takes in the playlists and creates the labels from there
-	 */
 	public void makeGUI()	{
 		
+		RadioStations wmmr = new RadioStations();
 		wmmr.sortMasterList();
 		wmmr.createPlaylist();
+		
 		playlist = wmmr.getDjSet1();
 		
 		makeFrame();
-		displayList(playlist);		
+		displayList(playlist); 
 	}
 
-	/**
-	 * The layout of the GUI is made
-	 */
+
 	public void makeFrame()	{
 
 		setTitle("Radio Station");
@@ -77,53 +69,53 @@ public class RadioGUI extends JFrame {
 		
 		djPanel = new JPanel();
 		currentDJ = new JLabel();
-		currentDJ.add(djPanel);
-		currentDJ.setText(wmmr.getDJ().getDjName());
+		djPanel.add(currentDJ);
+		currentDJ.setText(djs.getDjName());
+		
+		
 		add(djPanel, BorderLayout.EAST);
-
 		add(scrollPane, BorderLayout.WEST);
 		add(picturePanel, BorderLayout.NORTH);
 		add(buttonPanel, BorderLayout.SOUTH);
 		add(currentPlaying, BorderLayout.CENTER);
 
 		pack();
+		setSize(600,400);
 		setVisible(true);
 	}
-	
-	/**
-	 * The actionlistener is made to make the GUI
-	 * 
-	 */
+
 	private class createPlaylistListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
+			dispose();
 			makeGUI();
+			
+			//makeGUI();
+			//isPlaying = false;
+			//wmmr.sortMasterList();
+			//wmmr.createPlaylist();
+			//playlist = wmmr.getDjSet1();
+			//makeFrame();
+			
 		}
 	}
 
-	/**
-	 * Displays the current song
-	 * @param currentSong		The current song being played
-	 */
-	public static void setCurrentSong(String currentSong) {
+	public void setCurrentSong(String currentSong) {
 		currentTitle.setText("Now Playing: " + currentSong);	
 	}
 
-	public static void displayList(ArrayList<Audio> audioList)	{
-
+	public void displayList(ArrayList<Audio> audioList)	{
+				
 		for(Audio audio : audioList)	{
 			System.out.print("Title: " + audio.getTitle() + ". ");				 
 			System.out.println("Audio Length:" + audio.getAudioLength());
-			delay(audio.getAudioLength() * 200);
+			delay(audio.getAudioLength() * 20);
 			setCurrentSong(audio.getTitle());
-		}		
 	}
-	/**
-	 * Used to delay the program depending on song length
-	 * @param milliseconds
-	 */
-	public static void delay(int milliseconds)	{
+	}
+
+	public void delay(int milliseconds)	{
 		try {
 			Thread.sleep(milliseconds);
 		}
