@@ -55,6 +55,7 @@ public class RadioStations {
 		{
 			masterList.add(new News("local dog barks" + f, 5));
 		}
+		dj1 = new DJS();
 	}
 	/**
 	 * Sorts through all the audio files and puts them where they need to be
@@ -142,11 +143,13 @@ public class RadioStations {
 			count++;
 
 		}
+		dj1.addAudio(djSet1);
+
 	}
 	/**
-	*Gives back the set of DJs
+	*Gives back the created playlist
 	*
-	*@return	The set of Djs
+	*@return	The playlist or DJ set
 	*/
 	public ArrayList<Audio> getDjSet1() {
 		return djSet1;
