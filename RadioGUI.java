@@ -74,6 +74,12 @@ public class RadioGUI extends JFrame {
 		currentTitle = new JLabel();
 		currentPlaying.add(currentTitle);
 		scrollPane = new JScrollPane(songPanel);
+		
+		djPanel = new JPanel();
+		currentDJ = new JLabel();
+		currentDJ.add(djPanel);
+		currentDJ.setText(wmmr.getDJ().getDjName());
+		add(djPanel, BorderLayout.EAST);
 
 		add(scrollPane, BorderLayout.WEST);
 		add(picturePanel, BorderLayout.NORTH);
