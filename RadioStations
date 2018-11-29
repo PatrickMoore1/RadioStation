@@ -12,6 +12,7 @@ public class RadioStations {
 	private ArrayList<Audio> commercialList= new ArrayList<Audio>();
 	private ArrayList<Audio> djSet1 = new ArrayList<Audio>();
 	private Random rand = new Random();
+	private DJS dj1;
 
 
 	public RadioStations()
@@ -46,6 +47,8 @@ public class RadioStations {
 		{
 			masterList.add(new News("local dog barks" + f, 5));
 		}
+		dj1 = new DJS();
+
 	}
 
 	public void sortMasterList()
