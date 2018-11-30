@@ -1,15 +1,17 @@
+import java.util.ArrayList;
+
 /**
  * The audio is the superclass and will provide for the title author and time
  * 
- * @author Patrick Moore, Alexander Abbot, Kevin Nguyen
+ * @author Patrick Moore, Alexander Abbot, Brian Piet, Kevin Nguyen
  *
  */
-public class Audio {
+public abstract class Audio {
 
 	protected String title;
 	protected int audioLength;
-	protected int time;
-	
+	protected int dateLastPlayed = 30;
+
 	/**
 	 * Creates music, news, commercials, and traffic reports using the info
 	 * 
@@ -19,8 +21,9 @@ public class Audio {
 	public Audio(String title, int audioLength) {
 		this.title = title;
 		this.audioLength = audioLength;
-		this.time = 0;
+		this.dateLastPlayed = dateLastPlayed;
 	}
+
 
 
 	/**
@@ -32,7 +35,7 @@ public class Audio {
 		return title;
 	}
 
-	
+
 	/**
 	 * Sets the name of the author
 	 * 
@@ -42,7 +45,7 @@ public class Audio {
 		this.title = title;
 	}
 
-	
+
 	/**
 	 * Retrieves the length of the audio piece
 	 * 
@@ -51,6 +54,8 @@ public class Audio {
 	public int getAudioLength() {
 		return audioLength;
 	}
+
+
 
 	/**
 	 * Sets the length time of the audio
@@ -67,14 +72,17 @@ public class Audio {
 	 * 
 	 * @return			The amount of time that has passed
 	 */
-	public int getTime() {
-		return time;
+	public int getDateLastPlayed() {
+		return dateLastPlayed;
 	}	
-	
-	/**
-	 * Plays the song by incrementing the time
-	 */
-	public void playSong()	{
-		time++;
+
+	public void incrementDate()	{
+		dateLastPlayed++;
 	}
+
+	public void isPlayed()	{
+		dateLastPlayed = 0;
+	}
+
+
 }
