@@ -12,7 +12,6 @@ public class RadioStations {
 	private ArrayList<Audio> commercialList= new ArrayList<Audio>();
 	private ArrayList<Audio> djSet1 = new ArrayList<Audio>();
 	private Random rand = new Random();
-	private DJS dj1;
 
 
 	public RadioStations()
@@ -20,7 +19,7 @@ public class RadioStations {
 
 		for(int i = 0; i <= 48; i++)
 		{
-			masterList.add(new OldSongs("Despacito" + i, 3, "Kevin " + i, "190" + i));
+			masterList.add(new OldSongs("Despacito" + i, 3, "Kevin " + i));
 		}
 
 		for(int m = 0; m <= 144; m++)
@@ -47,8 +46,6 @@ public class RadioStations {
 		{
 			masterList.add(new News("local dog barks" + f, 5));
 		}
-		dj1 = new DJS();
-
 	}
 
 	public void sortMasterList()
@@ -84,6 +81,10 @@ public class RadioStations {
 
 	public void createPlaylist()
 	{
+		for(Audio song : masterList)	{
+			song.incrementDate();
+		}
+		
 
 		int count = 0;
 		while(count <= 103)
@@ -101,7 +102,19 @@ public class RadioStations {
 
 			if(count == 1 || count == 16 || count == 27 || count == 42 || count == 53 || count == 68 || count == 79 || count == 94)
 			{
-				djSet1.add(oldSongList.get(rand.nextInt(oldSongList.size())));
+				boolean isLoaded = false;
+				Audio checkSong = oldSongList.get(rand.nextInt(oldSongList.size()));
+				
+				while (!isLoaded)	{
+					if(checkSong.getDateLastPlayed() >= 30)	{
+						djSet1.add(checkSong);
+						checkSong.isPlayed();
+						isLoaded = true;
+					}
+					else	{
+						checkSong = (OldSongs) oldSongList.get(rand.nextInt(oldSongList.size()));
+					}
+				}
 			}
 
 			if(count == 2 || count == 3 || count == 8 || count == 9 || count == 10 || count == 17 || count == 18 || count == 24 || 
@@ -117,7 +130,7 @@ public class RadioStations {
 					count == 56 || count == 57 || count == 58 || count == 63 || count == 64 || count == 65 || count == 71 || count == 72 || count == 73 || count == 77 ||
 					count == 82 || count == 83 || count == 84 || count == 89 || count == 90 || count == 91 || count == 97 || count == 98 || count == 99 || count == 103)
 			{
-				djSet1.add(commercialList.get(rand.nextInt(commercialList.size()))); 
+				djSet1.add(commercialList.get(rand.nextInt(commercialList.size()))); //DIS SHIT YEETED
 			}
 
 			if(count == 15 || count == 23 || count == 41 || count == 49 || count == 67 || count == 75 || count == 93 || count == 101)
